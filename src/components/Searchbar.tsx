@@ -4,6 +4,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "@/pages/SearchPage";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
+import { validateString } from "@/utils/validateString";
 
 const Searchbar = () => {
 	const [value, setValue] = useState("");
@@ -16,10 +18,13 @@ const Searchbar = () => {
 		setValue(query);
 	}, [query]);
 
-	const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
-		if (e.key === "Enter" && value.trim()) {
-			console.log("Searching for", value);
+	const handleSearch = () => {
+		console.log("Searching for", value);
+		if (validateString(value)) {
 			navigate(`/search?q=${encodeURIComponent(value)}`);
+		} else {
+			toast.error("Please enter a valid search query");
+			console.log("error");
 		}
 	};
 
@@ -35,11 +40,15 @@ const Searchbar = () => {
 				className="pl-9 placeholder:text-neutral-3400"
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
-				onKeyDown={handleSearch}
+				onKeyDown={(e) => {
+					if (e.key === "Enter") {
+						handleSearch();
+					}
+				}}
 			/>
 			<Button
 				className="absolute top-0 right-0 rounded-l-none"
-				onClick={() => navigate(`/search?q=${encodeURIComponent(value)}`)}
+				onClick={handleSearch}
 			>
 				Search
 			</Button>
