@@ -13,6 +13,6 @@ export const navItems = [
 	},
 	{
 		name: "Contact",
-		href: "emailto:contact@girmantech.com",
+		href: "mailto:contact@girmantech.com",
 	},
 ];

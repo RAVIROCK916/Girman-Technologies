@@ -42,7 +42,7 @@ const UserCard = ({ user }: Props) => {
 			<div className="flex justify-between items-center">
 				<div>
 					<p className="flex items-center gap-x-1">
-						<Phone className="size-4" fill="currentColor" />
+						<Phone className="size-4 stroke-0" fill="currentColor" />
 						<span className="text-sm font-medium">{contact_number}</span>
 					</p>
 					<span className="text-neutral-400 text-xs">
