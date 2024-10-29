@@ -3,6 +3,7 @@ import { Input } from "./ui/input";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "@/pages/SearchPage";
+import { Button } from "./ui/button";
 
 const Searchbar = () => {
 	const [value, setValue] = useState("");
@@ -24,7 +25,7 @@ const Searchbar = () => {
 
 	return (
 		<div
-			className={`relative w-[500px] h-max rounded-md ${
+			className={`relative w-80 md:w-[500px] h-max rounded-md ${
 				location.pathname === "/" ? "shadow-md" : "shadow-sm"
 			}`}
 		>
@@ -36,6 +37,12 @@ const Searchbar = () => {
 				onChange={(e) => setValue(e.target.value)}
 				onKeyDown={handleSearch}
 			/>
+			<Button
+				className="absolute top-0 right-0 rounded-l-none"
+				onClick={() => navigate(`/search?q=${encodeURIComponent(value)}`)}
+			>
+				Search
+			</Button>
 		</div>
 	);
 };
