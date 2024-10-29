@@ -43,7 +43,7 @@ const UserCard = ({ user }: Props) => {
 				<div>
 					<p className="flex items-center gap-x-1">
 						<Phone className="size-4" fill="currentColor" />
-						<span className="font-medium">{contact_number}</span>
+						<span className="text-sm font-medium">{contact_number}</span>
 					</p>
 					<span className="text-neutral-400 text-xs">
 						{contact_number ? "Available on phone" : "Unavailable"}
