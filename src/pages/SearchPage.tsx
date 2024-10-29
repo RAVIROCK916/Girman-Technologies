@@ -7,8 +7,8 @@ import { Toaster } from "sonner";
 export const SearchContext = createContext("");
 
 const SearchPage = () => {
-	const [searchParams, setSearchParams] = useSearchParams();
-	const query = searchParams.get("q")!;
+	const searchParams = useSearchParams();
+	const query = searchParams[0].get("q")!;
 
 	return (
 		<SearchContext.Provider value={query}>

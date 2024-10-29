@@ -3,7 +3,6 @@
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
-	"homepage": "https://ravirock916.github.io/Girman-Technologies/",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
